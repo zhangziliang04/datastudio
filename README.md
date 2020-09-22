@@ -57,4 +57,4 @@
 ![实时数据监控](https://github.com/zhangziliang04/datastudio/blob/master/image/%E8%BF%90%E8%A1%8C%E6%BC%94%E7%A4%BA3.jpg  "运行演示三")
 
 ## 微信交流群
-![微信答疑](  "运行演示三")
+![微信答疑](https://github.com/zhangziliang04/datastudio/blob/master/image/%E5%BE%AE%E4%BF%A1%E7%AD%94%E7%96%91%E7%BE%A4.jpg  "运行演示三")
