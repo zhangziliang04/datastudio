@@ -48,10 +48,10 @@
 
 
 ## 运行演示
-![实时数据监控](  "运行演示一")
+![实时数据监控](https://github.com/zhangziliang04/datastudio/blob/master/image/%E8%BF%90%E8%A1%8C%E6%BC%94%E7%A4%BA1.jpg  "运行演示一")
 
-![实时数据监控](  "运行演示二")
+![实时数据监控](https://github.com/zhangziliang04/datastudio/blob/master/image/%E8%BF%90%E8%A1%8C%E6%BC%94%E7%A4%BA2.jpg  "运行演示二")
 
-![实时数据监控](  "运行演示三")
+![实时数据监控](https://github.com/zhangziliang04/datastudio/blob/master/image/%E8%BF%90%E8%A1%8C%E6%BC%94%E7%A4%BA3.jpg  "运行演示三")
 
 
