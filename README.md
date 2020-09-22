@@ -1,4 +1,4 @@
-# 《数据可视化分析精讲源码》
+# [《数据可视化分析精讲源码》](https://kaiwu.lagou.com/course/courseInfo.htm?courseId=440#/detail/pc?id=4474&scrollTop=4756.80029296875)
 
 ## 目录结构
 ### 第一部分：基础理论篇
@@ -34,3 +34,16 @@
 14.PyEcharts与Flask Web框架整合
 
 15.PyEcharts与Flask 整合实战案例
+
+## 内容概览
+
+
+
+## 运行演示
+![实时数据监控](https://github.com/zhangziliang04/datastudio/blob/master/image/%E8%BF%90%E8%A1%8C%E6%BC%94%E7%A4%BA1.jpg "运行演示一")
+
+![实时数据监控](https://github.com/zhangziliang04/datastudio/blob/master/image/%E8%BF%90%E8%A1%8C%E6%BC%94%E7%A4%BA2.jpg "运行演示二")
+
+![实时数据监控](https://github.com/zhangziliang04/datastudio/blob/master/image/%E8%BF%90%E8%A1%8C%E6%BC%94%E7%A4%BA3.jpg  "运行演示三")
+
+
