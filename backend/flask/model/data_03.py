@@ -5,7 +5,7 @@ import pymysql.cursors
 # 交易订单量查询
 def order_category_sum_query():
     # 连接到数据库
-    connection = pymysql.connect(host='111.231.196.162',
+    connection = pymysql.connect(host='localhost',
                                  port=3306,
                                  user='root',
                                  password='zhangzl',

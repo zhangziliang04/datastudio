@@ -8,7 +8,7 @@ from pyecharts.charts import Map
 # 不同国家/地区顾客数量
 def customer_sum_query():
     # 连接到数据库
-    connection = pymysql.connect(host='111.231.196.162',
+    connection = pymysql.connect(host='localhost',
                                  port=3306,
                                  user='root',
                                  password='zhangzl',

@@ -6,7 +6,7 @@ from pyecharts.charts import Bar
 # 不同门店的营业额
 def month_store_query():
     # 连接到数据库
-    connection = pymysql.connect(host='111.231.196.162',
+    connection = pymysql.connect(host='localhost',
                                  port=3306,
                                  user='root',
                                  password='zhangzl',
