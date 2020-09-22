@@ -1,5 +1,7 @@
 # [《数据可视化分析精讲源码》](https://kaiwu.lagou.com/course/courseInfo.htm?courseId=440#/detail/pc?id=4474&scrollTop=4756.80029296875)
 
+## QQ交流群：872296181
+
 ## 目录结构
 ### 第一部分：基础理论篇
 01.概念解析：什么是数据可视化分析
@@ -54,4 +56,5 @@
 
 ![实时数据监控](https://github.com/zhangziliang04/datastudio/blob/master/image/%E8%BF%90%E8%A1%8C%E6%BC%94%E7%A4%BA3.jpg  "运行演示三")
 
-
+## 微信交流群
+![微信答疑](  "运行演示三")
