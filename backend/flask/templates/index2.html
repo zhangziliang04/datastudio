@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>全国疫情监控完整项目实战</title>
+    <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+    <script type="text/javascript" src="https://assets.pyecharts.org/assets/maps/china.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+        .divcard{border:0px solid #ffc518; left: 10px; height:180px; width:1020px; min-height:200px}
+    </style>
+</head>
+<body>
+    <div class="divcard" >
+      <h6 style="color:black;text-align:left;">实时疫情数据概览</h6>
+        <table border="0" style="width:1000px; height:110px;">
+          <tr>
+              <td>
+                  <div class="card text-center" style="width:250px; height:100px;">
+                    <div class="card-header">确诊病例</div>
+                    <div class="card-body" style= "background-color: #FFE0E0">
+                        <h class="card-title">{{curnumber.conf}}</h>
+                    </div>
+                  </div>
+              </td>
+              <td>
+                  <div class="card text-center" style="width:250px; height:100px;">
+                    <div class="card-header">疑似病例</div>
+                    <div class="card-body" style= "background-color: #FFEED9">
+                        <h class="card-title">{{curnumber["suspect"]}}</h>
+                    </div>
+                  </div>
+              </td>
+              <td>
+                  <div class="card text-center" style="width:250px; height:100px;">
+                    <div class="card-header">死亡病例</div>
+                    <div class="card-body" style= "background-color: #EEEEEE">
+                        <h class="card-title" >{{curnumber.dead}}</h>
+                    </div>
+                  </div>
+              </td>
+              <td>
+                  <div class="card text-center" style="width:250px; height:100px;">
+                    <div class="card-header">治愈病例</div>
+                    <div class="card-body" style= "background-color: #DFEEE6">
+                        <h class="card-title">{{curnumber.cure}}</h>
+                    </div>
+                  </div>
+              </td>
+          </tr>
+       </table>
+    </div>
+
+    <div id="map" style="width:1024px; height:600px;"></div>
+    <script>
+        $(
+            function () {
+                var chart = echarts.init(document.getElementById('map'), 'white', {renderer: 'canvas'});
+                $.ajax({
+                    type: "GET",
+                    url: "http://127.0.0.1:5000/mapChart",
+                    dataType: 'json',
+                    success: function (result) {
+                        chart.setOption(result);
+                    }
+                });
+            }
+        )
+    </script>
+
+    <div id="ConfNewLine" style="width:1024px; height:600px;"></div>
+    <script>
+        $(
+            function () {
+                var chart = echarts.init(document.getElementById('ConfNewLine'), 'white', {renderer: 'canvas'});
+                $.ajax({
+                    type: "GET",
+                    url: "http://127.0.0.1:5000/confChart",
+                    dataType: 'json',
+                    success: function (result) {
+                        chart.setOption(result);
+                    }
+                });
+            }
+        )
+    </script>
+
+    <div id="ConfTotalLine" style="width:1024px; height:600px;"></div>
+    <script>
+        $(
+            function () {
+                var chart = echarts.init(document.getElementById('ConfTotalLine'), 'white', {renderer: 'canvas'});
+                $.ajax({
+                    type: "GET",
+                    url: "http://127.0.0.1:5000/confTotalChart",
+                    dataType: 'json',
+                    success: function (result) {
+                        chart.setOption(result);
+                    }
+                });
+            }
+        )
+    </script>
+    <div id="DeadTotalLine" style="width:1024px; height:600px;"></div>
+    <script>
+        $(
+            function () {
+                var chart = echarts.init(document.getElementById('DeadTotalLine'), 'white', {renderer: 'canvas'});
+                $.ajax({
+                    type: "GET",
+                    url: "http://127.0.0.1:5000/deadTotalChart",
+                    dataType: 'json',
+                    success: function (result) {
+                        chart.setOption(result);
+                    }
+                });
+            }
+        )
+    </script>
+
+    <style>
+    .fl-table {
+        margin: 20px;
+        border-radius: 5px;
+        font-size: 12px;
+        border: none;
+        border-collapse: collapse;
+        max-width: 100%;
+        width: 1000px;
+        white-space: nowrap;
+        word-break: keep-all;
+    }
+
+    .fl-table th {
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .fl-table tr {
+        display: table-row;
+        vertical-align: inherit;
+        border-color: inherit;
+    }
+
+    .fl-table tr:hover td {
+        background: #00d1b2;
+        color: #F8F8F8;
+    }
+
+    .fl-table td, .fl-table th {
+        border-style: none;
+        border-top: 1px solid #dbdbdb;
+        border-left: 1px solid #dbdbdb;
+        border-bottom: 3px solid #dbdbdb;
+        border-right: 1px solid #dbdbdb;
+        padding: .5em .55em;
+        font-size: 15px;
+    }
+
+    .fl-table td {
+        border-style: none;
+        font-size: 15px;
+        vertical-align: center;
+        border-bottom: 1px solid #dbdbdb;
+        border-left: 1px solid #dbdbdb;
+        border-right: 1px solid #dbdbdb;
+        height: 30px;
+    }
+
+    .fl-table tr:nth-child(even) {
+        background: #F8F8F8;
+    }
+    </style>
+    <div id="divtable" class="chart-container" style="">
+        <p class="title" style="font-size: 18px; font-weight:bold;" > 全国疫情数据分布</p>
+        <table class="fl-table">
+            <tr>
+                <th>地区</th>
+                <th>确诊</th>
+                <th>死亡</th>
+                <th>治愈</th>
+            </tr>
+            {% for i in content %}
+            <tr>
+                {% for j in i %}
+                    <td>{{ j }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>实时指标监控</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+
+   <!-- Favicon icon -->
+   <link rel="icon" type="image/png" sizes="16x16" href="../static/assets/images/favicon.png">
+   <!-- Custom CSS -->
+   <link href="../static/assets/libs/flot/css/float-chart.css" rel="stylesheet">
+   <!-- Custom CSS -->
+   <link href="../static/dist/css/style.min.css" rel="stylesheet">
+
+  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<br/>
+
+<div class="container">
+    <div class="row">
+    <!-- 交易量 -->
+    <div class="col-md-8 col-lg-4 col-xlg-4">
+      <div class="card">
+        <div class="card-body" align = 'center'>
+          <h4 class="card-title">{{ curnumber.ordersum }}</h4>
+          <p class="card-text">交易量</p>
+          <a href="#" class="card-link">同比：+11%</a>
+          <a href="#" class="card-link">环比：-12%</a>
+        </div>
+      </div>
+    </div>
+    <!-- 交易额 -->
+    <div class="col-md-8 col-lg-4 col-xlg-4">
+      <div class="card">
+        <div class="card-body" align = 'center'>
+          <h4 class="card-title"><a href="#">{{ curnumber.paysum }}</a></h4>
+          <p class="card-text">交易额</p>
+          <a href="#" class="card-link">同比：+11%</a>
+          <a href="#" class="card-link">环比：-12%</a>
+        </div>
+      </div>	
+    </div>
+    <!-- 库存量 -->
+    <div class="col-md-8 col-lg-4 col-xlg-4">
+      <div class="card">
+        <div class="card-body" align = 'center'>
+          <h4 class="card-title"><a href="#">{{ curnumber.inventsum }}</a></h4>
+          <p class="card-text">库存量</p>
+          <a href="#" class="card-link">同比：+14%</a>
+          <a href="#" class="card-link">环比：-12%</a>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- ============================================================== -->
+    <!-- Sales chart -->
+    <!-- ============================================================== -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <!-- column -->
+                        <div class="col-md-12 col-lg-12">
+                            <div class="flot-chart"  style="height: 600px;">
+                                <div class="flot-chart-content" style="text-align:center;" id="chart"></div>
+                            </div>
+                        </div>
+                        <!-- column -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+
+</div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="../static/assets/libs/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="../static/assets/libs/popper.js/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="../static/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="../static/assets/extra-libs/sparkline/sparkline.js"></script>
+    <!--Wave Effects -->
+    <script src="../static/dist/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="../static/dist/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="../static/dist/js/custom.min.js"></script>
+    <!--This page JavaScript -->
+    <!-- <script src="../../dist/js/pages/dashboards/dashboard1.js"></script> -->
+    <!-- Charts js Files -->
+    <script src="../static/assets/libs/flot/excanvas.js"></script>
+    <script src="../static/assets/libs/flot/jquery.flot.js"></script>
+    <script src="../static/assets/libs/flot/jquery.flot.pie.js"></script>
+    <script src="../static/assets/libs/flot/jquery.flot.time.js"></script>
+    <script src="../static/assets/libs/flot/jquery.flot.stack.js"></script>
+    <script src="../static/assets/libs/flot/jquery.flot.crosshair.js"></script>
+    <script src="../static/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+    <script src="../static/dist/js/pages/chart/chart-page-init.js"></script>
+
+    <!-- 订单量历史数据变化趋势 -->
+    <script>
+        $(
+            function () {
+                var chart = echarts.init(document.getElementById('chart'), 'white', {renderer: 'canvas'});
+                $.ajax({
+                    type: "GET",
+                    url: "http://127.0.0.1:5000/histChart",
+                    dataType: 'json',
+                    success: function (result) {
+                        chart.setOption(result);
+                    }
+                });
+            }
+        )
+    </script>
+</body>
+</html>
